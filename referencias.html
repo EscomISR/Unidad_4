@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .navbar-brand,
+        .nav-link,
+        .boton-disp {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .navbar-personalizado {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .disposicion {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .disposicion-logos {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+
+        .disposicion-logos div {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 1.5rem;
+            margin-right: 30px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            padding: 8px 15px !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item {
+            padding: 8px 20px;
+            transition: all 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--secondary-color);
+            color: white !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .presentacion {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+
+
+        .presentacion:hover {
+            transform: translateY(-5px);
+        }
+
+        .boton-disp {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .boton-disp:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .boton-disp i {
+            transition: transform 0.3s ease;
+        }
+
+        .boton-disp.collapsed i {
+            transform: rotate(-90deg);
+        }
+
+        #div_1,
+        #div_2,
+        #div_3,
+        #div_4,
+        #div_5 {
+            padding: 25px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 0;
+            margin-top: 50px;
+        }
+
+        footer h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        footer .nav-link {
+            color: rgba(255, 255, 255, 0.7) !important;
+            padding: 5px 0 !important;
+        }
+
+        footer .nav-link:hover {
+            color: white !important;
+            padding-left: 10px !important;
+        }
+
+        .border-top {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .color-text {
+            color: white;
+        }
+
+        .renglones {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .margin-padding {
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 768px) {
+            .disposicion {
+                flex-direction: column;
+            }
+
+            .navbar-brand {
+                margin-bottom: 15px;
+            }
+
+            .presentacion {
+                padding: 20px;
+            }
+        }
+
+        .texto-justificado {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .texto-cursiva {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-container"></div>
+
+    <div class="container">
+
+
+        <h3 style="padding: 10px 10px;">Lista de referencias</h3>
+
+        <div id="referencesAccordion" class="texto-justificado">
+
+            <!-- Referencia 1 -->
+            <div class="">
+                <div class=" p-0" id="headingRef1">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef1" aria-expanded="false" aria-controls="collapseRef1">
+                        <span>1. Carrier, B. (2005).  <i class="texto-cursiva">File System Forensic Analysis.</i> Addison-Wesley Professional.</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="">
+                <div class=" p-0" id="headingRef2">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef2" aria-expanded="false" aria-controls="collapseRef2">
+                        <span>2. Casey, E. (2011). <i class="texto-cursiva">Digital Evidence and Computer Crime (3.ª ed.).</i> Academic Press.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef3">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef3" aria-expanded="false" aria-controls="collapseRef3">
+                        <span>3. <i class="texto-cursiva">Directorios.</i> (s.f.).</span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef3" class="collapse" aria-labelledby="headingRef3"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://cloud.educaplay.com/recursos/73/2348661/imagen_1_1460727542.gif"
+                            target="_blank">https://cloud.educaplay.com/recursos/73/2348661/imagen_1_1460727542.gif</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class=" p-0" id="headingRef5">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef5" aria-expanded="false" aria-controls="collapseRef5">
+                        <span>4. Henson, V. (2015).  <i class="texto-cursiva">GPFS Essentials.</i> IBM DeveloperWorks.</span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef5" class="collapse" aria-labelledby="headingRef5"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.kernel.org/doc/html/latest/filesystems/ext4/index.html"
+                            target="_blank">https://www.kernel.org/doc/html/latest/filesystems/ext4/index.html</a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef6">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef6" aria-expanded="false" aria-controls="collapseRef6">
+                        <span>5. IBM. (2001). <i class="texto-cursiva">AIX 5L Performance Tools Handbook.</i> IBM Redbooks.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef7">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef7" aria-expanded="false" aria-controls="collapseRef7">
+                        <span>6. IBM. (2007). <i class="texto-cursiva">AIX 6 Advanced Technical Guide.</i> IBM Redbooks.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef8">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef8" aria-expanded="false" aria-controls="collapseRef8">
+                        <span>7. IBM. (2020). <i class="texto-cursiva">IBM Spectrum Scale: Concepts, Planning, and Implementation Guide.</i></span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef8" class="collapse" aria-labelledby="headingRef8"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.ibm.com/docs/en/spectrum-scale/5.1.0"
+                            target="_blank">https://www.ibm.com/docs/en/spectrum-scale/5.1.0</a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef9">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef9" aria-expanded="false" aria-controls="collapseRef9">
+                        <span>8. Jones, K. J., Bejtlich, R., & Rose, C. W. (2006). <i class="texto-cursiva">Real Digital Forensics</i> (pp. 95-110). Addison-Wesley.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef10">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef10" aria-expanded="false" aria-controls="collapseRef10">
+                        <span>9. LinkedIn. (s. f.). <i class="texto-cursiva">¿Cómo elegir entre la consistencia eventual y fuerte para los
+                            microservicios?</i></span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef10" class="collapse" aria-labelledby="headingRef10"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.linkedin.com/advice/3/how-do-you-choose-between-eventual-strong-consistency?lang=es"
+                            target="_blank">https://www.linkedin.com/advice/3/how-do-you-choose-between-eventual-strong-consistency?lang=es</a>
+                        [Secciones: "Consistencia eventual", "Consistencia fuerte"]
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef11">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef11" aria-expanded="false" aria-controls="collapseRef11">
+                        <span>10. LinkedIn. (s. f.). <i class="texto-cursiva">¿Cuáles son los beneficios y desventajas de la consistencia
+                            eventual para los file systems?</i></span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef11" class="collapse " aria-labelledby="headingRef11"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://es.linkedin.com/advice/3/what-benefits-drawbacks-eventual-consistency-file?lang=es"
+                            target="_blank">https://es.linkedin.com/advice/3/what-benefits-drawbacks-eventual-consistency-file?lang=es</a>
+                        [Secciones: "Beneficios", "Inconvenientes"].
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef12">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef12" aria-expanded="false" aria-controls="collapseRef12">
+                        <span>11. Linux Kernel Documentation (s. f.).  <i class="texto-cursiva">Ext 4 Data Structures and Algorithms</i> (sección
+                            "Journaling Modes").</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="">
+                <div class=" p-0" id="headingRef13">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef13" aria-expanded="false" aria-controls="collapseRef13">
+                        <span>12. Linux Kernel Documentation (s.f.). <i class="texto-cursiva">Ext4 Data Structures</i> (sección "Inode
+                            Recovery").</span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef13" class="collapse" aria-labelledby="headingRef13"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.kernel.org/doc/html/latest/filesystems/ext4/index.html"
+                            target="_blank">https://www.kernel.org/doc/html/latest/filesystems/ext4/index.html</a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef14">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef14" aria-expanded="false" aria-controls="collapseRef14">
+                        <span>13. López Y. A., Rivera C. D., Rodríguez, R., Sandoval M. A.,(2024). <i class="texto-cursiva">Optimización del
+                            sistema de archivos.</i></span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef14" class="collapse" aria-labelledby="headingRef14"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=LvQWKYcMVGc"
+                            target="_blank">https://www.youtube.com/watch?v=LvQWKYcMVGc</a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef15">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef15" aria-expanded="false" aria-controls="collapseRef15">
+                        <span>14. Microsoft (s.f.). <i class="texto-cursiva">NTFS Technical Reference</i> (sección "File Deletion").</span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef15" class="collapse" aria-labelledby="headingRef15"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://learn.microsoft.com/en-us/windows-server/storage/file-server/ntfs-overview"
+                            target="_blank">https://learn.microsoft.com/en-us/windows-server/storage/file-server/ntfs-overview</a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef16">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef16" aria-expanded="false" aria-controls="collapseRef16">
+                        <span>15. Patterson, D. A., Gibson, G., & Katz, R. H. (1988). <i class="texto-cursiva">A Case for Redundant Arrays of Inexpensive Disks (RAID)</i>. ACM SIGMOD Conference (p. 113).</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef17">
+                    <button class="boton-disp " type="button" data-toggle="collapse" data-target="#collapseRef17"
+                        aria-expanded="false" aria-controls="collapseRef17">
+                        <span>16. Silberschatz, A., Galvin, P. B., & Gagne, G. (2018). <i class="texto-cursiva">Operating System Concepts</i> (10.ª ed.).</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef18">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef18" aria-expanded="false" aria-controls="collapseRef18">
+                        <span>17. <i class="texto-cursiva">Slideshare</i> (2022). Proyecto_NoSQL.pdf.</span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef18" class="collapse" aria-labelledby="headingRef18"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://es.slideshare.net/mundodigitalpro/proyectonosqlpdf"
+                            target="_blank">https://es.slideshare.net/mundodigitalpro/proyectonosqlpdf</a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef19">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef19" aria-expanded="false" aria-controls="collapseRef19">
+                        <span>18. Smit, B. (2010). <i class="texto-cursiva">AIX 7 Administration</i>. McGraw-Hill</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef20">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef20" aria-expanded="false" aria-controls="collapseRef20">
+                        <span>19. Stallings, W. (2018). <i class="texto-cursiva">Operating systems: Internals and design principles</i> (9th ed.). Pearson.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef21">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef21" aria-expanded="false" aria-controls="collapseRef21">
+                        <span>20. Tanenbaum, A. S. (2009). <i class="texto-cursiva">Sistemas Operativos Modernos</i> (3.ª ed.). Pearson Educación de
+                            México, S.A. de C.V.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef22">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef22" aria-expanded="false" aria-controls="collapseRef22">
+                        <span>21. Tanenbaum, A. S. y Woodhull, A. S (2009). <i class="texto-cursiva">Sistemas Operativos: Diseño e implementación</i>
+                            (2.ª ed.). Prentice Hall.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef23">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef23" aria-expanded="false" aria-controls="collapseRef23">
+                        <span>22.Tanenbaum, A. S., & Bos, H. (2015). <i class="texto-cursiva">Modern operating systems</i> (4th ed.). Pearson.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef24">
+                    <button class="boton-disp texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef24" aria-expanded="false" aria-controls="collapseRef24">
+                        <span>23.Tanenbaum, A. S., & Woodhull, A. S. (2006). <i class="texto-cursiva">Operating Systems: Design and Implementation</i> (3.ª ed. Prentice Hall).</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="">
+                <div class=" p-0" id="headingRef25">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef25" aria-expanded="false" aria-controls="collapseRef25">
+                        <span>24.Viewnext. (s. f.). <i class="texto-cursiva">Consistencia Eventual, SAGAS y Microservicios.</i> </span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef25" class="collapse" aria-labelledby="headingRef25"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.viewnext.com/consistencia-eventual-sagas-y-microservicios/"
+                            target="_blank">https://www.viewnext.com/consistencia-eventual-sagas-y-microservicios/</a>
+                        [Sección: "¿Qué es la consistencia transaccional?"].
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class=" p-0" id="headingRef26">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef26" aria-expanded="false" aria-controls="collapseRef26">
+                        <span>25. <i class="texto-cursiva">Métodos de asignación de espacio.</i> </span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef26" class="collapse" aria-labelledby="headingRef26"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=g-bhPcGNRog"
+                            target="_blank">Blanco J. A. Cuellar D. J. (2024b). Métodos de asignación de espacio [Video]. YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class=" p-0" id="headingRef27">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef27" aria-expanded="false" aria-controls="collapseRef27">
+                        <span>26. <i class="texto-cursiva">Optimización de archivos.</i> </span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef27" class="collapse" aria-labelledby="headingRef27"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=VI_WZHhJN10"
+                            target="_blank">Optimización de archivos. Fávila. D. A. (2024). Optimización de archivos [Video]. YouTube. </a>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class=" p-0" id="headingRef28">
+                    <button class="boton-disp collapsed texto-justificado" type="button" data-toggle="collapse"
+                        data-target="#collapseRef28" aria-expanded="false" aria-controls="collapseRef28">
+                        <span>27. <i class="texto-cursiva">Optimización del sistema de archivos.</i> </span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+                <div id="collapseRef28" class="collapse" aria-labelledby="headingRef28"
+                    data-parent="#referencesAccordion">
+                    <div class="card-body">
+                        <a href="https://www.youtube.com/watch?v=LvQWKYcMVGc"
+                            target="_blank">Optimización del sistema de archivos. López Y. A. Rivera C. D. Rodríguez R. Sandoval M. A. (2024). Optimización del sistema de archivos [Video]. YouTube. </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    initNavbarScripts(); // Si necesitas inicializar scripts del navbar
+                });
+
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+            // Animación para los acordeones
+            $('.boton-disp').click(function () {
+                $(this).find('i').toggleClass('rotate-180');
+            });
+        });
+    </script>
+</body>
+
+</html>
